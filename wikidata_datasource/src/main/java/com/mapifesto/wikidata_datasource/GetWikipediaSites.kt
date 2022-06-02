@@ -11,7 +11,7 @@ class GetWikipediaSites(
 
     fun execute(
         wikidataId: String
-    ): Flow<DataState<Wikipedia>> = flow {
+    ): Flow<WikiDataState<Wikipedia>> = flow {
 
 
         var errorMessage: String? = null
@@ -25,7 +25,7 @@ class GetWikipediaSites(
         }
 
         if(wikipediaSites == null) {
-            emit(DataState.Error("Error executing GetWikipediaSites. Error message: $errorMessage"))
+            emit(WikiDataState.Error("Error executing GetWikipediaSites. Error message: $errorMessage"))
             return@flow
         }
 

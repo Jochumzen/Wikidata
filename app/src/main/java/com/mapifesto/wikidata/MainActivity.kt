@@ -7,12 +7,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.mapifesto.domain.OsmElement
 import com.mapifesto.domain.Wikipedia
 import com.mapifesto.wikidata.ui.theme.WikidataTheme
-import com.mapifesto.wikidata_datasource.DataState
+import com.mapifesto.wikidata_datasource.WikiDataState
 import com.mapifesto.wikidata_datasource.WikipediaIntermediary
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -56,10 +54,10 @@ fun Compose(
                         error = ""
                         wikipediaIntermediary.getWikipediaSiteByWikiId("Q1236689") {
                             when(it) {
-                                is DataState.Error ->{
+                                is WikiDataState.Error ->{
                                     error = it.error
                                 }
-                                is DataState.Data -> {
+                                is WikiDataState.WikiData -> {
                                     wikipedia = it.data
                                     showWhat = "wikipedia"
                                 }

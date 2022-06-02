@@ -1,13 +1,13 @@
 package com.mapifesto.wikidata_datasource
 
-sealed class DataState<T> {
+sealed class WikiDataState<T> {
 
     data class Error<T>(
         val error: String
-    ): DataState<T>()
+    ): WikiDataState<T>()
 
-    data class Data<T>(
+    data class WikiData<T>(
         val data: T
-    ): DataState<T>()
+    ): WikiDataState<T>()
 
 }

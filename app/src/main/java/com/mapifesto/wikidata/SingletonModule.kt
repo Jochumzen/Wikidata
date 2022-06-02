@@ -14,7 +14,7 @@ object SingletonModule {
 
     @Singleton
     @Provides
-    fun provideOverpassIntermediary(
+    fun provideWikipediaIntermediary(
 
     ) : WikipediaIntermediary {
         return WikipediaIntermediaryImpl()
